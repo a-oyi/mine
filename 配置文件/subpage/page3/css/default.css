@@ -1,0 +1,132 @@
+body{
+	margin:0;
+	padding:0;
+	background:#ffe;
+	font-size:14px;
+	font-family:'微软雅黑','宋体',sans-serif;
+	color:#231F20;
+	overflow:hidden;
+	animation: pagemove 1s forwards paused;
+}
+
+@keyframes pagemove{
+	to{
+		transform: translateY(1000px);
+		background: pink;
+	}
+}
+
+#email{
+	position: absolute;
+	left: 80%;
+	cursor: pointer;
+}
+
+#email_say{
+	animation: 2s movemo forwards infinite linear;
+}
+
+@keyframes movemo{
+	20%{opacity: 1;
+		transform: scale(1.1) rotate(20deg);
+	}
+	40%{
+		transform: scale(1.2) rotate(0deg);
+	}
+	60%{
+		transform: scale(1.1) rotate(-20deg);
+	}
+	80%{
+		transform: scale(1) rotate(0deg);
+	}
+	100%{
+		transform: scale(1) rotate(0deg);
+	}
+}
+
+#email_skin{
+	opacity: 0;
+	animation: 2s forwards emailSkin;
+}
+
+@keyframes emailSkin{
+	80%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+a {
+	color:#000;
+	font-size:14px;
+}
+
+#main{
+	width:100%;
+}
+
+#wrap{
+	position:relative;
+	margin:0 auto;
+	width:1100px;
+	height:680px;
+	margin-top:10px;
+}
+
+#text{
+	width:400px;
+	height:425px;
+	left:60px;
+	top:80px;
+	position:absolute;
+}
+
+#code{
+	display:none;
+	font-size:16px;
+}
+
+#clock-box {
+	position:absolute;
+	left:60px;
+	top:550px;
+	font-size:28px;
+	display:none;
+}
+
+#clock-box a {
+	font-size:28px;
+	text-decoration:none;
+}
+
+#clock{
+	margin-left:48px;
+}
+
+#clock .digit {
+	font-size:64px;
+}
+
+#canvas{
+	margin:0 auto;
+	width:1100px;
+	height:680px;
+}
+
+.hand{
+	cursor:pointer;
+}
+
+.say{
+	margin-left:5px;
+}
+
+.space{
+	margin-right:150px;
+}
+
+.STYLE1 {
+	color: #666666
+}

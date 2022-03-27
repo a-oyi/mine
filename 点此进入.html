@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>给迟迟的生日礼物</title>
+		<link rel="shortcut icon" href="配置文件/image/logo.svg" />
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			body{
+				overflow: hidden;
+			}
+			
+			#error,#begin{
+				width: 100vw;
+				height: 100vh;
+			}
+			
+			#iframe{
+				width: 100vw;
+				height: 100vh;
+				border: none;
+			}
+			
+			.errorPage{
+				width: 60vw;
+				height: 10vh;
+				position: absolute;
+				transform: translate(-50%,-50%);
+				top: 30%;
+				left: 50%;
+				line-height: 10vh;
+				text-align: center;
+				font-size: 5vh;
+			}	
+		</style>
+	</head>
+	<body>
+		<div id="begin" style="display: none;">
+			<iframe src="配置文件/login.html" id="iframe"></iframe>
+		</div>
+		<div id="error" style="display: block;">
+			<div class="errorPage">
+				请使用Microsoft&nbsp;&nbsp;Edge浏览器
+				<img src="配置文件/svg/edge.svg" align="center" alt=""/>
+				打开！！！
+			</div>
+		</div>
+		<div id="openError" style="display: none;">
+			<div class="errorPage">
+				请在PC端打开！！！
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function myBrowser(){
+			var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+			var isOpera = userAgent.indexOf("Opera") > -1;
+			if (isOpera) {
+				return "Opera"
+			}; //判断是否Opera浏览器
+			if (userAgent.indexOf("Firefox") > -1) {
+				return "FF";
+			} //判断是否Firefox浏览器
+			if (userAgent.indexOf("Chrome") > -1){
+				return "Chrome";
+			}
+			if (userAgent.indexOf("Safari") > -1) {
+				return "Safari";
+			} //判断是否Safari浏览器
+			if (userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera) {
+				return "IE";
+			}; //判断是否IE浏览器
+		}
+		function openType(){
+			var demo = "false";
+			if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+			    demo = "false";
+			} else {
+			    demo = "true";
+			}
+			return demo;
+		}
+		var mb = myBrowser();
+		var opentype = openType();
+		var begin = document.getElementById('begin');
+		var error = document.getElementById('error');
+		var openError = document.getElementById('openError');
+		if("Chrome" == mb&&opentype == "true"){
+			begin.style.display = "block";
+			error.style.display = "none";
+			openError.style.display = "none";
+			alert("部分页面有背景音乐，请戴好耳机或将电脑调至静音！");
+		}else if("Chrome" != mb&&opentype == "true"){
+			begin.style.display = "none";
+			error.style.display = "block";
+			openError.style.display = "none";
+		}else{
+			begin.style.display = "none";
+			error.style.display = "none";
+			openError.style.display = "block";
+		}
+	</script>
+</html>
